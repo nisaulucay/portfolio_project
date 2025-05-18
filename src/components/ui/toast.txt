@@ -1,0 +1,21 @@
+"use client"
+import * as React from "react";
+
+import {
+    ToastProvider as RadixToastProvider,
+    ToastViewport,
+} from "@radix-ui/react-toast"
+
+import { cn } from "../../lib/utils"
+import { toast as sonnerToast } from "sonner"
+
+export function ToastProvider({ children }: { children: React.ReactNode }) {
+    return (
+        <RadixToastProvider>
+            {children}
+            <ToastViewport className={cn("fixed bottom-0 right-0 p-4")} />
+        </RadixToastProvider>
+    )
+}
+
+export const toast = sonnerToast
