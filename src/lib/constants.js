@@ -124,7 +124,7 @@ export const contactInfo = [
     {
         iconName: "Phone",
         title: "Telefon",
-        value: "+90 0553 913 67 37"
+        value: "+90 05** *** ** **"
     }
 ];
 
