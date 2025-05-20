@@ -1,7 +1,7 @@
-// src/components/ui/toast.js
+
 import React, { createContext, useContext, useState } from 'react';
 
-// ToastContext ve ToastProvider oluşturuluyor
+
 const ToastContext = createContext();
 
 export const ToastProvider = ({ children }) => {

@@ -1,39 +1,42 @@
-import { useState, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export function useScrollSpy(
-    ids,
-    options = { threshold: 0.4, rootMargin: '0px 0px -20% 0px' }
+    ids = [],
+    options = { threshold: 0.4, rootMargin: '0px 0px -50% 0px' }
 ) {
-    const [activeId, setActiveId] = useState(ids[0] || null); // İlk aktif öğeyi belirliyoruz
+    const [activeId, setActiveId] = useState(null);
 
-    useLayoutEffect(() => {
-        const elements = ids
-            .map((id) => document.getElementById(id))
-            .filter(Boolean);
-
-        if (elements.length === 0) return;
+    useEffect(() => {
+        if (!('IntersectionObserver' in window)) return;
 
         const observer = new IntersectionObserver(
             (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveId(entry.target.id);
-                    }
-                });
+                const visibleSections = entries
+                    .filter((entry) => entry.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+                if (visibleSections.length > 0) {
+                    setActiveId(visibleSections[0].target.id);
+                }
             },
             {
+                root: null,
                 rootMargin: options.rootMargin,
                 threshold: options.threshold,
             }
         );
 
-        elements.forEach((element) => observer.observe(element));
+        const elements = ids
+            .map((id) => document.getElementById(id))
+            .filter((el) => el !== null);
+
+        elements.forEach((el) => observer.observe(el));
 
         return () => {
-            elements.forEach((element) => observer.unobserve(element));
+            elements.forEach((el) => observer.unobserve(el));
+            observer.disconnect();
         };
     }, [ids, options.threshold, options.rootMargin]);
 
     return activeId;
 }
-

@@ -45,13 +45,12 @@ const ContactSection = () => {
         setIsSubmitting(true);
 
         try {
-            // Simüle edilmiş gönderim işlemi (1.5 saniye bekle)
+
             await new Promise((resolve) => setTimeout(resolve, 1500));
 
             console.log("Gönderilen değerler:", values);
             form.reset();
 
-            // Başarılı toast mesajı
             toast.success("Mesaj Gönderildi!", {
                 description: "En yakın zamanda döneceğim. Teşekkürler.",
             });

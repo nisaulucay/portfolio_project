@@ -5,10 +5,14 @@ import { cn } from '../../lib/utils';
 
 const Header = ({ isScrolled }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const activeSection = useScrollSpy(['home', 'about', 'skills', 'portfolio', 'contact'], {
-        threshold: 0.5,
-        rootMargin: '-100px 0px 0px 0px',
-    });
+
+    const activeSection = useScrollSpy(
+        ['home', 'about', 'skills', 'portfolio', 'contact'],
+        {
+            threshold: 0.5,
+            rootMargin: '-100px 0px 0px 0px',
+        }
+    );
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -30,21 +34,28 @@ const Header = ({ isScrolled }) => {
     }, []);
 
     return (
-        <header className={cn(
-            "fixed w-full z-50 transition-all duration-300",
-            isScrolled ? "bg-background/95 shadow-sm backdrop-blur-sm" : "bg-transparent"
-        )}>
+        <header
+            className={cn(
+                'fixed w-full z-50 transition-all duration-300 backdrop-blur-sm',
+                isScrolled ? 'bg-background/95 shadow-md' : 'bg-background/80'
+            )}
+        >
             <nav className="container mx-auto px-6 py-4">
                 <div className="flex justify-between items-center">
-                    <a href="#home" className="text-2xl font-heading font-bold text-accent">Portfolyo</a>
+                    <a
+                        href="#home"
+                        className="text-2xl font-heading font-bold text-accent"
+                    >
+                        Portfolyo
+                    </a>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex space-x-8">
                         <a
                             href="#home"
                             className={cn(
-                                "nav-link font-accent font-medium text-foreground",
-                                activeSection === 'home' && "active"
+                                'nav-link font-accent font-medium text-foreground',
+                                activeSection === 'home' && 'active text-accent font-semibold'
                             )}
                         >
                             Ana Sayfa
@@ -52,8 +63,8 @@ const Header = ({ isScrolled }) => {
                         <a
                             href="#about"
                             className={cn(
-                                "nav-link font-accent font-medium text-foreground",
-                                activeSection === 'about' && "active"
+                                'nav-link font-accent font-medium text-foreground',
+                                activeSection === 'about' && 'active text-accent font-semibold'
                             )}
                         >
                             Hakkımda
@@ -61,8 +72,8 @@ const Header = ({ isScrolled }) => {
                         <a
                             href="#skills"
                             className={cn(
-                                "nav-link font-accent font-medium text-foreground",
-                                activeSection === 'skills' && "active"
+                                'nav-link font-accent font-medium text-foreground',
+                                activeSection === 'skills' && 'active text-accent font-semibold'
                             )}
                         >
                             Neler Yapabilirim ?
@@ -70,8 +81,8 @@ const Header = ({ isScrolled }) => {
                         <a
                             href="#portfolio"
                             className={cn(
-                                "nav-link font-accent font-medium text-foreground",
-                                activeSection === 'portfolio' && "active"
+                                'nav-link font-accent font-medium text-foreground',
+                                activeSection === 'portfolio' && 'active text-accent font-semibold'
                             )}
                         >
                             Portfolyo
@@ -79,8 +90,8 @@ const Header = ({ isScrolled }) => {
                         <a
                             href="#contact"
                             className={cn(
-                                "nav-link font-accent font-medium text-foreground",
-                                activeSection === 'contact' && "active"
+                                'nav-link font-accent font-medium text-foreground',
+                                activeSection === 'contact' && 'active text-accent font-semibold'
                             )}
                         >
                             İletişim
@@ -105,7 +116,7 @@ const Header = ({ isScrolled }) => {
 
                 {/* Mobile Navigation Menu */}
                 {mobileMenuOpen && (
-                    <div className="md:hidden mt-4 pb-2">
+                    <div className="md:hidden mt-4 pb-2 bg-background/90 rounded-xl shadow-lg px-4 py-2">
                         <div className="flex flex-col space-y-4">
                             <a
                                 href="#home"
@@ -151,3 +162,4 @@ const Header = ({ isScrolled }) => {
 };
 
 export default Header;
+

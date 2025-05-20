@@ -1,6 +1,5 @@
-// src/components/ui/toast-provider.jsx
 import React from "react";
-import { Toaster } from "sonner"; // Toaster buradan gelir, doğru import bu
+import { Toaster } from "sonner";
 
 export const ToastProvider = ({ children }) => {
     return (

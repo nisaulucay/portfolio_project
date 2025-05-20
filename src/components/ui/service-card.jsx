@@ -2,7 +2,7 @@ import React from 'react';
 import * as LucideIcons from 'lucide-react';
 
 const ServiceCard = ({ iconName, title, description }) => {
-    // Dynamically load icon from Lucide based on iconName
+
     const IconComponent = (LucideIcons)[iconName] || LucideIcons.Circle;
 
     return (

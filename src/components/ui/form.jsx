@@ -1,11 +1,10 @@
 import React from 'react';
 import { cn } from '../../lib/utils';
 
-// FormField bileşeni verileri almadığı için gereksiz parametreleri kaldırdık
+
 export function FormField({ render }) {
     return (
         <div>
-            {/* Render edilen içerik */}
             {render({})}
         </div>
     );
