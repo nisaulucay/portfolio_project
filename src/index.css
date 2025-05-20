@@ -116,3 +116,9 @@
 .font-accent {
     font-family: 'Montserrat', sans-serif;
 }
+
+.my-photo {
+    display: block;       /* Görünsün */
+    max-width: 100%;      /* Ekran genişliğini aşmasın */
+    height: auto;         /* Oranları korusun */
+}
