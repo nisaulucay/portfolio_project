@@ -26,8 +26,8 @@ const AboutSection = () => {
                     >
                         <div className="relative mx-auto max-w-md">
                             <img
-                                src="https://i.postimg.cc/3Rhvqry3/Whats-App-Image-2025-05-16-at-14-14-29.jpg"
-                                alt="Hayrunnisa Uluçay"
+                                src="/images/ana_gorsel.jpeg"
+                                alt="Hayrunnisa Uluçay - Bilgisayar Mühendisliği Öğrencisi"
                                 className="rounded-lg shadow-xl w-full object-cover"
                                 style={{height: 'auto', maxHeight: '400px'}}
                             />

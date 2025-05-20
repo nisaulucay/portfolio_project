@@ -55,10 +55,11 @@ const HeroSection = () => {
                     >
                         <div className="relative rounded-full overflow-hidden h-72 w-72 md:h-96 md:w-96 border-8 border-white shadow-xl mx-auto">
                             <img
-                                src="https://i.postimg.cc/SRWthxdV/Whats-App-Image-2025-05-11-at-00-36-08.jpg"
+                                src="/images/profil.jpeg"
                                 alt="Hayrunnisa Uluçay - Bilgisayar Mühendisliği Öğrencisi"
                                 className="w-full h-full object-cover"
                             />
+
                         </div>
                         <div className="absolute -bottom-5 -right-5 md:-bottom-10 md:-right-10 bg-primary rounded-full h-24 w-24 md:h-32 md:w-32 flex items-center justify-center shadow-lg">
                             <p className="text-white font-heading font-bold text-lg md:text-xl"></p>
