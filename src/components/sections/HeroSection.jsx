@@ -57,9 +57,10 @@ const HeroSection = () => {
                             <img
                                 src="https://i.postimg.cc/SRWthxdV/Whats-App-Image-2025-05-11-at-00-36-08.jpg"
                                 alt="Hayrunnisa Uluçay - Bilgisayar Mühendisliği Öğrencisi"
-                                className="w-full object-cover rounded-lg shadow-xl"
-                                style={{ height: 'auto', maxHeight: '400px' }}
+                                className="w-full max-w-xs mx-auto rounded-full border-4 border-gray-300 shadow-lg object-cover"
+                                style={{ height: 'auto', aspectRatio: '1 / 1' }}
                             />
+
 
                         </div>
                         <div className="absolute -bottom-5 -right-5 md:-bottom-10 md:-right-10 bg-primary rounded-full h-24 w-24 md:h-32 md:w-32 flex items-center justify-center shadow-lg">
