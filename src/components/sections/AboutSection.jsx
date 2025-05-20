@@ -29,9 +29,7 @@ const AboutSection = () => {
                                 src="https://i.postimg.cc/3Rhvqry3/Whats-App-Image-2025-05-16-at-14-14-29.jpg"
                                 alt="Hayrunnisa Uluçay"
                                 className="rounded-lg shadow-xl w-full object-cover"
-                                style={{height: 'auto', maxHeight: '400px'}}
                             />
-
                             <div className="absolute -bottom-6 -right-6 bg-secondary rounded-lg p-4 shadow-lg max-w-xs">
                                 <div className="flex items-center space-x-3">
                                     <div className="p-3 bg-accent rounded-full">
