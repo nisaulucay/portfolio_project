@@ -9,7 +9,7 @@ export const ToastProvider = ({ children }) => {
 
     const showToast = (message) => {
         setToast(message);
-        setTimeout(() => setToast(null), 3000); // 3 saniye sonra toast'ı kaldır
+        setTimeout(() => setToast(null), 3000);
     };
 
     return (

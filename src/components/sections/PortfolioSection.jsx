@@ -67,9 +67,9 @@ const PortfolioSection = () => {
                             <PortfolioItem
                                 image={project.image}
                                 title={project.title}
-                                categories={project.categories} // düzeltildi
+                                categories={project.categories}
                                 link={project.link}
-                                description={project.description} // EKLENDİ
+                                description={project.description}
                             />
                         </motion.div>
                     ))}
