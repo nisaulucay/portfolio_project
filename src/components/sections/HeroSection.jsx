@@ -29,7 +29,7 @@ const HeroSection = () => {
                             Bilgisayar Mühendisliği Öğrencisi
                         </h2>
                         <p className="text-lg text-foreground leading-relaxed mb-10 max-w-lg">
-                            Balıkesir Üniversitesi Bilgisayar Mühendisliği bölümünde 2 senedir eğitim görmekteyim.
+                            Balıkesir Üniversitesi Bilgisayar Mühendisliği bölümünde 3 senedir eğitim görmekteyim.
                         </p>
                         <div className="flex space-x-4">
                             <a
