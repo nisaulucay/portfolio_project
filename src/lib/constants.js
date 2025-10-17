@@ -73,7 +73,7 @@ export const portfolioData = [
         description: "React ve Tailwind CSS kullanılarak geliştirilen kişisel portfolyo sitesi. Mobil uyumlu ve modern tasarımlıdır."
     },
     {
-        image: "https://segwitz.com/wp-content/uploads/2023/09/shopping-mobile-apps-scaled-1.jpg",
+        image: "https://r.resimlink.com/qc9LaD0iF.jpg",
         title: "Shopping App",
         categories: ["Python", "Qt Designer", "Database","Görsel Programlama"],
         link: "https://github.com/nisaulucay/shopping_app",
