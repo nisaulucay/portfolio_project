@@ -60,7 +60,7 @@ const AboutSection = () => {
                             Tinus Technologies'deki stajımda Python, FastAPI ve Google Gemini API ile müşteri sorularını yanıtlayan LLM tabanlı bir destek chatbotu geliştirip Render'da canlıya aldım.
                             TÜBİTAK destekli Merkezi Hücre Hattı Bilgi Merkezi projesinde NLP tabanlı bilgi çıkarımı üzerinde çalışıyor, üniversitemin Mezun ve Kariyer Ağı Platformu'nun baş geliştiriciliğini yürütüyorum.
                             React Native ile mobil, React ile web uygulamaları da geliştiriyorum.
-                            Yapay Zekâ Takımı üyesiyim, Yörük Türkmen Kültürünü Araştırma Topluluğu'nda başkan yardımcılığı yapıyorum ve HSD Medium komitesinde teknik makaleler yazıyorum.
+                            Yapay Zekâ Takımı üyesiyim ve Yörük Türkmen Kültürünü Araştırma Topluluğu'nda başkan yardımcılığı yapıyorum.
                             Ekip çalışmasına yatkınım ve yeni teknolojileri hızlı öğrenirim.
                         </p>
 

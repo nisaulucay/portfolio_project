@@ -19,12 +19,18 @@ import {
 } from '../ui/form';
 import { socialMediaLinks, contactInfo } from '../../lib/constants';
 
+// Form mesajları Web3Forms üzerinden doğrudan e-posta kutusuna gelir.
+// Erişim anahtarı Vercel'de REACT_APP_WEB3FORMS_KEY ortam değişkeni olarak tanımlanır.
+// (Web3Forms anahtarı herkese açık kodda bulunabilir; gizli bir bilgi değildir.)
+const WEB3FORMS_ACCESS_KEY = process.env.REACT_APP_WEB3FORMS_KEY || "";
+
 const formSchema = z.object({
-    firstName: z.string().min(2, { message: "First name must be at least 2 characters" }),
-    lastName: z.string().min(2, { message: "Last name must be at least 2 characters" }),
-    email: z.string().email({ message: "Please enter a valid email address" }),
+    firstName: z.string().trim().min(2, { message: "Ad en az 2 karakter olmalı" }),
+    lastName: z.string().trim().min(2, { message: "Soyad en az 2 karakter olmalı" }),
+    email: z.string().trim().email({ message: "Geçerli bir e-posta adresi girin" }),
     subject: z.string().optional(),
-    message: z.string().min(10, { message: "Message must be at least 10 characters" }),
+    message: z.string().trim().min(10, { message: "Mesaj en az 10 karakter olmalı" }),
+    botcheck: z.boolean().optional(),
 });
 
 const ContactSection = () => {
@@ -38,24 +44,56 @@ const ContactSection = () => {
             email: "",
             subject: "",
             message: "",
+            botcheck: false,
         },
     });
 
     const onSubmit = async (values) => {
+        if (!WEB3FORMS_ACCESS_KEY) {
+            toast.error("Form henüz yapılandırılmadı.", {
+                description: "Lütfen hayrunnisaulucay@gmail.com adresine doğrudan e-posta gönderin.",
+            });
+            return;
+        }
+
         setIsSubmitting(true);
 
         try {
+            const fullName = `${values.firstName} ${values.lastName}`.trim();
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: WEB3FORMS_ACCESS_KEY,
+                    subject: values.subject?.trim()
+                        ? `Portfolyo: ${values.subject.trim()}`
+                        : `Portfolyo sitesinden yeni mesaj – ${fullName}`,
+                    from_name: "Portfolyo Sitesi",
+                    name: fullName,
+                    email: values.email,
+                    replyto: values.email,
+                    message: values.message,
+                    botcheck: values.botcheck || false,
+                }),
+            });
 
-            await new Promise((resolve) => setTimeout(resolve, 1500));
+            const result = await response.json().catch(() => ({}));
 
-            console.log("Gönderilen değerler:", values);
+            if (!response.ok || !result.success) {
+                throw new Error(result.message || "Gönderim başarısız");
+            }
+
             form.reset();
-
             toast.success("Mesaj Gönderildi!", {
                 description: "En yakın zamanda döneceğim. Teşekkürler.",
             });
         } catch (error) {
-            toast.error("Mesaj gönderilirken bir hata oluştu.");
+            toast.error("Mesaj gönderilemedi.", {
+                description: "Lütfen tekrar deneyin ya da hayrunnisaulucay@gmail.com adresine yazın.",
+            });
         } finally {
             setIsSubmitting(false);
         }
@@ -74,7 +112,7 @@ const ContactSection = () => {
                     <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">İletişime Geç</h2>
                     <div className="w-20 h-1 bg-accent mx-auto mb-6"></div>
                     <p className="max-w-3xl mx-auto text-foreground">
-                        İletişime geçmek için formu doldurunuz.
+                        Staj, iş birliği ya da projelerim hakkında yazabilirsiniz; mesajınız doğrudan e-posta kutuma ulaşır.
                     </p>
                 </motion.div>
 
@@ -142,6 +180,14 @@ const ContactSection = () => {
                     >
                         <Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
+                                <input
+                                    type="checkbox"
+                                    className="hidden"
+                                    style={{ display: 'none' }}
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                    {...form.register("botcheck")}
+                                />
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <FormField
                                         control={form.control}
