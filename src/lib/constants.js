@@ -95,8 +95,7 @@ export const experienceData = [
 
 export const activitiesData = [
     "Başkan Yardımcısı – Yörük Türkmen Kültürünü Araştırma Topluluğu, Balıkesir Üniversitesi",
-    "Üye – Balıkesir Üniversitesi Yapay Zekâ Takımı",
-    "İçerik Üreticisi – Huawei Student Developers (HSD) Medium Komitesi; teknik makaleler yazıyorum"
+    "Üye – Balıkesir Üniversitesi Yapay Zekâ Takımı"
 ];
 
 export const certificatesData = [
