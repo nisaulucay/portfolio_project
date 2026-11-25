@@ -9,14 +9,6 @@ import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { toast } from 'sonner';
 
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from '../ui/form';
 import { socialMediaLinks, contactInfo } from '../../lib/constants';
 
 // Form mesajları Web3Forms üzerinden doğrudan e-posta kutusuna gelir.
@@ -47,6 +39,8 @@ const ContactSection = () => {
             botcheck: false,
         },
     });
+
+    const { register, handleSubmit, formState: { errors } } = form;
 
     const onSubmit = async (values) => {
         if (!WEB3FORMS_ACCESS_KEY) {
@@ -178,119 +172,88 @@ const ContactSection = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
                     >
-                        <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
-                                <input
-                                    type="checkbox"
-                                    className="hidden"
-                                    style={{ display: 'none' }}
-                                    tabIndex={-1}
-                                    autoComplete="off"
-                                    {...form.register("botcheck")}
-                                />
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <FormField
-                                        control={form.control}
-                                        name="firstName"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel className="font-accent font-medium text-foreground">Ad</FormLabel>
-                                                <FormControl>
-                                                    <Input
-                                                        placeholder="Ad"
-                                                        {...field}
-                                                        className="p-3 border border-muted rounded-lg focus:ring-2 focus:ring-accent"
-                                                    />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
+                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
+                            <input
+                                type="checkbox"
+                                style={{ display: 'none' }}
+                                tabIndex={-1}
+                                autoComplete="off"
+                                {...register("botcheck")}
+                            />
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label htmlFor="firstName" className="block font-accent font-medium text-foreground mb-2">Ad</label>
+                                        <Input
+                                            id="firstName"
+                                            placeholder="Ad"
+                                            {...register("firstName")}
+                                            className="p-3 border border-muted rounded-lg focus:ring-2 focus:ring-accent"
+                                        />
+                                        {errors.firstName && (
+                                            <p className="mt-1 text-sm font-medium text-red-500">{errors.firstName.message}</p>
                                         )}
+                                    </div>
+                                <div>
+                                    <label htmlFor="lastName" className="block font-accent font-medium text-foreground mb-2">Soyad</label>
+                                    <Input
+                                        id="lastName"
+                                        placeholder="Soyad"
+                                        {...register("lastName")}
+                                        className="p-3 border border-muted rounded-lg focus:ring-2 focus:ring-accent"
                                     />
+                                    {errors.lastName && (
+                                        <p className="mt-1 text-sm font-medium text-red-500">{errors.lastName.message}</p>
+                                    )}
+                                </div>
+                            </div>
 
-                                    <FormField
-                                        control={form.control}
-                                        name="lastName"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel className="font-accent font-medium text-foreground">Soyad</FormLabel>
-                                                <FormControl>
-                                                    <Input
-                                                        placeholder="Soyad"
-                                                        {...field}
-                                                        className="p-3 border border-muted rounded-lg focus:ring-2 focus:ring-accent"
-                                                    />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
+                                <div>
+                                    <label htmlFor="email" className="block font-accent font-medium text-foreground mb-2">Email</label>
+                                    <Input
+                                        id="email"
+                                        type="email"
+                                        placeholder="ornek@mail.com"
+                                        {...register("email")}
+                                        className="p-3 border border-muted rounded-lg focus:ring-2 focus:ring-accent"
                                     />
+                                    {errors.email && (
+                                        <p className="mt-1 text-sm font-medium text-red-500">{errors.email.message}</p>
+                                    )}
+                                </div>
+                                <div>
+                                    <label htmlFor="subject" className="block font-accent font-medium text-foreground mb-2">Mesaj Konusu</label>
+                                    <Input
+                                        id="subject"
+                                        placeholder="Konu"
+                                        {...register("subject")}
+                                        className="p-3 border border-muted rounded-lg focus:ring-2 focus:ring-accent"
+                                    />
+                                    {errors.subject && (
+                                        <p className="mt-1 text-sm font-medium text-red-500">{errors.subject.message}</p>
+                                    )}
+                                </div>
+                                <div>
+                                    <label htmlFor="message" className="block font-accent font-medium text-foreground mb-2">Mesaj</label>
+                                    <Textarea
+                                        id="message"
+                                        placeholder="Mesaj"
+                                        rows={5}
+                                        {...register("message")}
+                                        className="p-3 border border-muted rounded-lg focus:ring-2 focus:ring-accent resize-none"
+                                    />
+                                    {errors.message && (
+                                        <p className="mt-1 text-sm font-medium text-red-500">{errors.message.message}</p>
+                                    )}
                                 </div>
 
-                                <FormField
-                                    control={form.control}
-                                    name="email"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel className="font-accent font-medium text-foreground">Email</FormLabel>
-                                            <FormControl>
-                                                <Input
-                                                    type="email"
-                                                    placeholder="xxxxxx@example.com"
-                                                    {...field}
-                                                    className="p-3 border border-muted rounded-lg focus:ring-2 focus:ring-accent"
-                                                />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-
-                                <FormField
-                                    control={form.control}
-                                    name="subject"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel className="font-accent font-medium text-foreground">Mesaj Konusu</FormLabel>
-                                            <FormControl>
-                                                <Input
-                                                    placeholder="Konu"
-                                                    {...field}
-                                                    className="p-3 border border-muted rounded-lg focus:ring-2 focus:ring-accent"
-                                                />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-
-                                <FormField
-                                    control={form.control}
-                                    name="message"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel className="font-accent font-medium text-foreground">Mesaj</FormLabel>
-                                            <FormControl>
-                                                <Textarea
-                                                    placeholder="Mesaj"
-                                                    {...field}
-                                                    rows={5}
-                                                    className="p-3 border border-muted rounded-lg focus:ring-2 focus:ring-accent resize-none"
-                                                />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-
-                                <Button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="bg-accent hover:bg-accent/90 text-white font-accent font-medium shadow-md px-8 py-3 w-full md:w-auto"
-                                >
-                                    {isSubmitting ? "Gönderiliyor..." : "Gönder"}
-                                </Button>
-                            </form>
-                        </Form>
+                            <Button
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="bg-accent hover:bg-accent/90 text-white font-accent font-medium shadow-md px-8 py-3 w-full md:w-auto"
+                            >
+                                {isSubmitting ? "Gönderiliyor..." : "Gönder"}
+                            </Button>
+                        </form>
                     </motion.div>
                 </div>
             </div>
