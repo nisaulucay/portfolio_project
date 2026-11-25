@@ -53,31 +53,29 @@ const AboutSection = () => {
                     >
                         <h3 className="text-2xl font-heading font-semibold text-foreground mb-6">Bilgisayar Mühendisliği Öğrencisi</h3>
                         <p className="text-foreground mb-4 leading-relaxed">
-                            Ben Hayrunnisa Uluçay. 2005 yılında Kastamonu'da doğdum orada büyüdüm ve Kastamonuluyum.
-                            Kastamonu Taşköprü Fen Lisesi'nden 2023 yılında mezun oldum.
-                            Ve 2023 yılından bu yana Balıkesir Üniverstesi Bilgisayar Mühendisliği bölümünde eğitim görmekteyim.
+                            Ben Hayrunnisa Uluçay. Kastamonuluyum; Kastamonu Taşköprü Fen Lisesi'nden 2023 yılında mezun oldum.
+                            2023'ten bu yana Balıkesir Üniversitesi Bilgisayar Mühendisliği bölümünde okuyorum ve şu an 4. sınıftayım.
                         </p>
                         <p className="text-foreground mb-6 leading-relaxed">
-                            Teknolojiye ve yazılıma olan ilgim, üniversite yıllarım boyunca daha da derinleşti.
-                            Kendimi özellikle yazılım geliştirme alanında geliştirmeye çalışıyorum.
-                            İngilizce alanında da online konuşma eğitimleri alarak speaking alanında geliştirdim.
-                            Ayrıca Arduino ile ilgili temel elektronik ve programlama konularını kapsayan bir eğitim programına katıldım ve bu eğitim sonunda sertifika almaya hak kazandım.
-                            Bu sayede donanım tabanlı projelerde de kendimi geliştirme fırsatı buldum. Grup çalışmalarına oldukça yatkınım ve uyumlu bir insanım.
-                            Şu an da üniversitemizin yapay zeka takımında hem proje geliştip hem de kendimi yapay zeka alanında geliştirmekteyim.
+                            Tinus Technologies'deki stajımda Python, FastAPI ve Google Gemini API ile müşteri sorularını yanıtlayan LLM tabanlı bir destek chatbotu geliştirip Render'da canlıya aldım.
+                            TÜBİTAK destekli Merkezi Hücre Hattı Bilgi Merkezi projesinde NLP tabanlı bilgi çıkarımı üzerinde çalışıyor, üniversitemin Mezun ve Kariyer Ağı Platformu'nun baş geliştiriciliğini yürütüyorum.
+                            React Native ile mobil, React ile web uygulamaları da geliştiriyorum.
+                            Yapay Zekâ Takımı üyesiyim, Yörük Türkmen Kültürünü Araştırma Topluluğu'nda başkan yardımcılığı yapıyorum ve HSD Medium komitesinde teknik makaleler yazıyorum.
+                            Ekip çalışmasına yatkınım ve yeni teknolojileri hızlı öğrenirim.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                             <div>
                                 <h4 className="font-accent font-semibold text-accent mb-2">Eğitim</h4>
-                                <p className="text-foreground">Balıkesir Üniverstesi<br/>Bilgisayar Mühendisliği alanına eğitim görmekteyim.</p>
+                                <p className="text-foreground">Balıkesir Üniversitesi<br/>Bilgisayar Mühendisliği, 4. sınıf (2023 – 2027)</p>
                             </div>
                             <div>
-                                <h4 className="font-accent font-semibold text-accent mb-2">Öğrenilen Deneyimler</h4>
-                                <p className="text-foreground">React ve Tailwind CSS kullanarak kişisel portfolyo sitesi geliştirildi. Toast bileşenleriyle çalışırken yaşanan sorunlar analiz edildi ve çözüm yolları araştırıldı.<br/>Frontend geliştirmede component mimarisi, form yönetimi ve kullanıcı deneyimi üzerine çalışmalar yapıldı.</p>
+                                <h4 className="font-accent font-semibold text-accent mb-2">Odak Alanları</h4>
+                                <p className="text-foreground">Yapay zekâ (LLM, NLP)<br/>Backend ve REST API<br/>Web ve mobil uygulama geliştirme</p>
                             </div>
                             <div>
                                 <h4 className="font-accent font-semibold text-accent mb-2">Dil</h4>
-                                <p className="text-foreground">İngilizce(B2)<br/> Türkçe<br/></p>
+                                <p className="text-foreground">Türkçe (ana dil)<br/>İngilizce (B2)</p>
                             </div>
                             <div>
                                 <h4 className="font-accent font-semibold text-accent mb-2">İlgi Alanları</h4>
@@ -85,12 +83,21 @@ const AboutSection = () => {
                             </div>
                         </div>
 
-                        <Button
-                            asChild
-                            className="bg-accent hover:bg-accent/90 text-white font-accent font-medium shadow-md"
-                        >
-                            <a href="#contact">Benimle İletişime Geç</a>
-                        </Button>
+                        <div className="flex flex-wrap gap-4">
+                            <Button
+                                asChild
+                                className="bg-accent hover:bg-accent/90 text-white font-accent font-medium shadow-md"
+                            >
+                                <a href="#contact">Benimle İletişime Geç</a>
+                            </Button>
+                            <Button
+                                asChild
+                                variant="outline"
+                                className="border-accent text-accent font-accent font-medium"
+                            >
+                                <a href="/Hayrunnisa_Ulucay_CV_TR.pdf" target="_blank" rel="noopener noreferrer">Özgeçmişimi İndir</a>
+                            </Button>
+                        </div>
                     </motion.div>
                 </div>
             </div>

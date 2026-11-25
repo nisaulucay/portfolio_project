@@ -7,7 +7,7 @@ const Header = ({ isScrolled }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const activeSection = useScrollSpy(
-        ['home', 'about', 'skills', 'portfolio', 'contact'],
+        ['home', 'about', 'experience', 'skills', 'portfolio', 'contact'],
         {
             threshold: 0.5,
             rootMargin: '-100px 0px 0px 0px',
@@ -70,13 +70,22 @@ const Header = ({ isScrolled }) => {
                             Hakkımda
                         </a>
                         <a
+                            href="#experience"
+                            className={cn(
+                                'nav-link font-accent font-medium text-foreground',
+                                activeSection === 'experience' && 'active text-accent font-semibold'
+                            )}
+                        >
+                            Deneyim
+                        </a>
+                        <a
                             href="#skills"
                             className={cn(
                                 'nav-link font-accent font-medium text-foreground',
                                 activeSection === 'skills' && 'active text-accent font-semibold'
                             )}
                         >
-                            Neler Yapabilirim ?
+                            Neler Yapabilirim?
                         </a>
                         <a
                             href="#portfolio"
@@ -131,6 +140,13 @@ const Header = ({ isScrolled }) => {
                                 onClick={closeMobileMenu}
                             >
                                 Hakkımda
+                            </a>
+                            <a
+                                href="#experience"
+                                className="font-accent font-medium text-foreground hover:text-accent transition py-2 border-b border-muted"
+                                onClick={closeMobileMenu}
+                            >
+                                Deneyim
                             </a>
                             <a
                                 href="#skills"

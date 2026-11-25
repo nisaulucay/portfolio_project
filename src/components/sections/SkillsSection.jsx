@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import ServiceCard from '../ui/service-card';
-import SkillProgress from '../ui/skill-progress';
-import { servicesData, skillsData } from '../../lib/constants';
+import { servicesData, skillGroups } from '../../lib/constants';
 
 const SkillsSection = () => {
     return (
@@ -20,7 +19,7 @@ const SkillsSection = () => {
                     </h2>
                     <div className="w-20 h-1 bg-accent mx-auto mb-6"></div>
                     <p className="max-w-3xl mx-auto text-foreground">
-                        Kendimi teknoloji alanında geliştirmekteyim.
+                        Yapay zekâ destekli yazılım, backend, web ve mobil uygulama geliştirme alanlarında çalışıyorum.
                     </p>
                 </motion.div>
 
@@ -55,19 +54,27 @@ const SkillsSection = () => {
                         Teknik Yetenekler
                     </h3>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-                        {skillsData.map((skill, index) => (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {skillGroups.map((group, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, x: -50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: false }}
-                                transition={{ duration: 0.8, delay: index * 0.1 }}
+                                className="bg-white rounded-xl shadow-md p-6"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
-                                <SkillProgress
-                                    name={skill.name}
-                                    percentage={skill.percentage}
-                                />
+                                <h4 className="font-accent font-semibold text-accent mb-4">{group.title}</h4>
+                                <div className="flex flex-wrap gap-2">
+                                    {group.items.map((item) => (
+                                        <span
+                                            key={item}
+                                            className="px-3 py-1 rounded-full bg-secondary/40 text-foreground text-sm"
+                                        >
+                                            {item}
+                                        </span>
+                                    ))}
+                                </div>
                             </motion.div>
                         ))}
                     </div>

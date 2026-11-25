@@ -11,8 +11,8 @@ const Footer = () => {
                     </div>
 
                     <div className="text-center md:text-right">
-                        <p className="text-neutral-100/80 mb-2">© {new Date().getFullYear()} All Rights Reserved</p>
-                        <a href="#" className="text-accent hover:text-accent/80 transition">Privacy Policy</a>
+                        <p className="text-neutral-100/80 mb-2">© {new Date().getFullYear()} Tüm hakları saklıdır</p>
+                        <a href="mailto:hayrunnisaulucay@gmail.com" className="text-accent hover:text-accent/80 transition">hayrunnisaulucay@gmail.com</a>
                     </div>
                 </div>
             </div>

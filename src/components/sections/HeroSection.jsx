@@ -28,10 +28,13 @@ const HeroSection = () => {
                         <h2 className="text-xl md:text-2xl font-heading font-medium text-accent mb-8">
                             Bilgisayar Mühendisliği Öğrencisi
                         </h2>
-                        <p className="text-lg text-foreground leading-relaxed mb-10 max-w-lg">
-                            Balıkesir Üniversitesi Bilgisayar Mühendisliği bölümünde 3 senedir eğitim görmekteyim.
+                        <p className="text-lg text-foreground leading-relaxed mb-4 max-w-lg">
+                            Balıkesir Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. LLM tabanlı uygulamalar, FastAPI ile backend servisleri, web ve mobil uygulamalar geliştiriyorum.
                         </p>
-                        <div className="flex space-x-4">
+                        <p className="text-base text-accent font-accent font-medium mb-10 max-w-lg">
+                            8 Şubat – 9 Haziran 2027 döneminde 7+1 İşletmede Mesleki Eğitim (İME) için uygunum.
+                        </p>
+                        <div className="flex flex-wrap gap-4">
                             <a
                                 href="#portfolio"
                                 className="bg-accent hover:bg-accent/90 text-white font-accent font-medium shadow-md px-6 py-3 rounded-full"
@@ -43,6 +46,14 @@ const HeroSection = () => {
                                 className="border-2 border-accent text-accent hover:bg-accent/10 font-accent font-medium px-6 py-3 rounded-full"
                             >
                                 İletişime Geç
+                            </a>
+                            <a
+                                href="/Hayrunnisa_Ulucay_CV_TR.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="border-2 border-accent text-accent hover:bg-accent/10 font-accent font-medium px-6 py-3 rounded-full"
+                            >
+                                Özgeçmiş (PDF)
                             </a>
                         </div>
                     </motion.div>

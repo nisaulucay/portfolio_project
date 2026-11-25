@@ -100,7 +100,11 @@ const ContactSection = () => {
                                         </div>
                                         <div>
                                             <h4 className="font-accent font-semibold text-foreground mb-1">{item.title}</h4>
-                                            <p className="text-foreground">{item.value}</p>
+                                            {item.href ? (
+                                                <a href={item.href} className="text-foreground hover:text-accent transition">{item.value}</a>
+                                            ) : (
+                                                <p className="text-foreground">{item.value}</p>
+                                            )}
                                         </div>
                                     </div>
                                 ))}

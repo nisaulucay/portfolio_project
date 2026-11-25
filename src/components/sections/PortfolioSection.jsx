@@ -24,7 +24,7 @@ const PortfolioSection = () => {
                     <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">Portfolyom</h2>
                     <div className="w-20 h-1 bg-accent mx-auto mb-6"></div>
                     <p className="max-w-3xl mx-auto text-foreground">
-                        Öğrenci olarak tasarım ve geliştirme becerilerimi gösteren bazı projelerim.
+                        Staj, araştırma ve kişisel çalışmalarımdan seçtiğim projeler.
 
                     </p>
                 </motion.div>
@@ -66,6 +66,7 @@ const PortfolioSection = () => {
                         >
                             <PortfolioItem
                                 image={project.image}
+                                iconName={project.iconName}
                                 title={project.title}
                                 categories={project.categories}
                                 link={project.link}

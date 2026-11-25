@@ -1,7 +1,18 @@
 import { useState } from 'react';
+import * as LucideIcons from 'lucide-react';
 
-const PortfolioItem = ({ image, title, categories, link, description }) => {
+const PortfolioItem = ({ image, iconName, title, categories, link, description }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const IconComponent = (LucideIcons)[iconName] || LucideIcons.Code;
+
+    const Visual = ({ className }) => image ? (
+        <img src={image} alt={title} className={className} />
+    ) : (
+        <div className={`${className} bg-gradient-to-br from-[#f6eee3] via-[#e3d5cc] to-[#d8c3b9] flex flex-col items-center justify-center text-[#4a3f35] p-6 text-center`}>
+            <IconComponent size={48} />
+            <span className="mt-3 font-semibold">{title}</span>
+        </div>
+    );
 
     const categoriesText = Array.isArray(categories)
         ? categories.join(', ')
@@ -11,11 +22,7 @@ const PortfolioItem = ({ image, title, categories, link, description }) => {
         <>
             {/* KART */}
             <div className="relative group w-full max-w-md mx-auto rounded-xl shadow overflow-hidden">
-                <img
-                    src={image}
-                    alt={title}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+                <Visual className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
                 <div
                     className="absolute inset-0 bg-[#f6eee3]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4"
                 >
@@ -41,7 +48,7 @@ const PortfolioItem = ({ image, title, categories, link, description }) => {
                         >
                             ×
                         </button>
-                        <img src={image} alt={title} className="w-full h-48 object-cover rounded mb-4" />
+                        <Visual className="w-full h-48 object-cover rounded mb-4" />
                         <h2 className="text-xl font-bold text-[#4a3f35] mb-2">{title}</h2>
                         <p className="text-sm text-[#6b5e54] mb-2">{categoriesText}</p>
                         <p className="text-sm text-[#7a6e60] mb-4">{description}</p>
@@ -55,9 +62,7 @@ const PortfolioItem = ({ image, title, categories, link, description }) => {
                             >
                                 {link.endsWith(".pdf") ? "PDF'yi Görüntüle" : "GitHub Linkine Git"}
                             </a>
-                        ) : (
-                            <p className="text-sm text-[#aaa]">Hiçbir link eklenmedi.</p>
-                        )}
+                        ) : null}
 
                     </div>
                 </div>
